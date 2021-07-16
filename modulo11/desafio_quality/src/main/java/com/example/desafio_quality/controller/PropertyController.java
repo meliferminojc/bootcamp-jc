@@ -20,6 +20,11 @@ public class PropertyController {
         return ResponseEntity.ok(propertyService.findOne(id));
     }
 
+    @GetMapping("/value/{id}")
+    public ResponseEntity<?> getPropertyValue(@PathVariable Long id) {
+        return ResponseEntity.ok(propertyService.propertyValue(id));
+    }
+
     @PostMapping("/create")
     public ResponseEntity<?> createProperty(@RequestBody PropertyForm propertyForm) {
         return ResponseEntity.status(HttpStatus.CREATED).body(propertyService.saveProperty(propertyForm));

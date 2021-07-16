@@ -35,4 +35,9 @@ public class Property {
     public Double getTotalM2() {
         return this.roomList.stream().mapToDouble(Room::getM2).sum();
     }
+
+    public BigDecimal getPropertyValue(BigDecimal valueDistrictM2) {
+        return BigDecimal.valueOf(getTotalM2()).multiply(valueDistrictM2);
+
+    }
 }
