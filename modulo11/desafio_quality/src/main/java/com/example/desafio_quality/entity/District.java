@@ -1,5 +1,7 @@
 package com.example.desafio_quality.entity;
 
+import com.example.desafio_quality.dto.form.DistrictForm;
+
 import java.math.BigDecimal;
 
 public class District {
@@ -23,5 +25,9 @@ public class District {
 
     public BigDecimal getValueM2() {
         return valueM2;
+    }
+
+    public void setValueM2(BigDecimal valueM2) {
+        this.valueM2 = valueM2;
     }
 }

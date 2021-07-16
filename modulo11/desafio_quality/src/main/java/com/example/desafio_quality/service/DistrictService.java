@@ -15,6 +15,10 @@ public class DistrictService {
     @Autowired
     private DistrictRepository districtRepository;
 
+    public DistrictService(DistrictRepository districtRepository) {
+        this.districtRepository = districtRepository;
+    }
+
     public ListDistrictDTO listDistricts() {
         return new ListDistrictDTO(districtRepository.getAll());
     }
@@ -22,5 +26,9 @@ public class DistrictService {
     public DistrictDTO saveDistrict(DistrictForm districtForm){
         District district = districtRepository.add(DistrictMapper.toEntity(districtForm));
         return DistrictMapper.toDTO(district);
+    }
+
+    public District getDistrictByName(String name) {
+        return districtRepository.findByName(name);
     }
 }
