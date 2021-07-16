@@ -6,13 +6,13 @@ import java.util.List;
 public class Property {
     private Long id;
     private String name;
-    private District district;
+    private String districtName;
     private List<Room> roomList;
 
-    public Property(Long id, String name, District district, List<Room> roomList) {
+    public Property(Long id, String name, String districtName, List<Room> roomList) {
         this.id = id;
         this.name = name;
-        this.district = district;
+        this.districtName = districtName;
         this.roomList = roomList;
     }
 
@@ -24,11 +24,15 @@ public class Property {
         return name;
     }
 
-    public District getDistrict() {
-        return district;
+    public String getDistrict() {
+        return districtName;
     }
 
     public List<Room> getRoomList() {
         return roomList;
+    }
+
+    public Double getTotalM2() {
+        return this.roomList.stream().mapToDouble(Room::getM2).sum();
     }
 }

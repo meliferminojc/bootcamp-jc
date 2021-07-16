@@ -1,20 +1,14 @@
-package com.example.desafio_quality.entity;
+package com.example.desafio_quality.dto.form;
 
-public class Room {
-    private Long id;
+public class RoomForm {
     private String name;
     private Double width;
     private Double length;
 
-    public Room(Long id, String name, Double width, Double length) {
-        this.id = id;
+    public RoomForm(String name, Double width, Double length) {
         this.name = name;
         this.width = width;
         this.length = length;
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public String getName() {
@@ -27,9 +21,5 @@ public class Room {
 
     public Double getLength() {
         return length;
-    }
-
-    public Double getM2() {
-        return this.length * this.width;
     }
 }

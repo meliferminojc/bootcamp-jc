@@ -16,8 +16,11 @@ public class DistrictRepository {
         return district;
     }
 
-    public Boolean findByName(String name) {
-        return districtList.stream().anyMatch(district -> district.getName().equals(name));
+    public District findByName(String name) {
+        return districtList.stream()
+                .filter(district -> district.getName().equals(name))
+                .findFirst()
+                .orElse(null);
     }
 
     public List<District> getAll(){
