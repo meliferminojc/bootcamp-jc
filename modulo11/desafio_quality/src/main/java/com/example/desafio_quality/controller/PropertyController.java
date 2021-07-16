@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/api/property")
 public class PropertyController {
@@ -31,7 +33,7 @@ public class PropertyController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<?> createProperty(@RequestBody PropertyForm propertyForm) {
+    public ResponseEntity<?> createProperty(@RequestBody @Valid PropertyForm propertyForm) {
         return ResponseEntity.status(HttpStatus.CREATED).body(propertyService.saveProperty(propertyForm));
     }
 

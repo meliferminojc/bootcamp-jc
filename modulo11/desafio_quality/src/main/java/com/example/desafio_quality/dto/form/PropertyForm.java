@@ -1,9 +1,18 @@
 package com.example.desafio_quality.dto.form;
 
+import javax.validation.constraints.*;
 import java.util.List;
 
 public class PropertyForm {
+    @NotNull(message = "Não pode ser null")
+    @NotEmpty(message = "Não pode ser vazio")
+    @Pattern(regexp = "^[A-Z]\\w+", message = "A primeira letra do nome deve ser maiúscula")
+    @Size(max = 45, message = "Não pode ter mais que 45 caracteres")
     private String prop_name;
+
+    @NotNull(message = "Não pode ser null")
+    @NotEmpty(message = "Não pode ser vazio")
+    @Size(max = 45, message = "Não pode ter mais que 45 caracteres")
     private String prop_district;
     private List<RoomForm> prop_rooms;
 
