@@ -25,6 +25,11 @@ public class PropertyController {
         return ResponseEntity.ok(propertyService.propertyValue(id));
     }
 
+    @GetMapping("/bigger-room/{id}")
+    public ResponseEntity<?> getBiggerRoom(@PathVariable Long id) {
+        return ResponseEntity.ok(propertyService.biggerRoom(id));
+    }
+
     @PostMapping("/create")
     public ResponseEntity<?> createProperty(@RequestBody PropertyForm propertyForm) {
         return ResponseEntity.status(HttpStatus.CREATED).body(propertyService.saveProperty(propertyForm));
